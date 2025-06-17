@@ -44,13 +44,16 @@ const handlemsg = (e) => {
   const send = () => {
   setSts(true)
   axios
-    .post("http://localhost:8080/sendmail", { data: msg , list:emaill})
+    .post("https://bulkmailapp-rs7i.onrender.com/sendmail", {
+      data: msg,
+      list: emaill,
+    })
     .then((response) => {
       if (response.data == true) {
         alert("Email sent successfully");
       }
       console.log("Email sent successfully", response.data);
-      setSts(false)
+      setSts(false);
     })
     .catch((error) => {
       console.error("Error sending email", error);
